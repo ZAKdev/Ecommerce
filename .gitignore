@@ -1,3 +1,5 @@
 *.DS_Store
 node_modules/
 public/*.min.js
+yarn-error.log
+npm-debug.log
