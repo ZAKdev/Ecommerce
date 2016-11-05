@@ -1,6 +1,7 @@
-require! 'React'
-require! 'React-DOM'
-require! './App/AppRoute.ls'
+require! \React
+require! \React-DOM
+require! \./App/AppRoute.ls
 
 ReactDOM.render do
-	AppRoute, document.body
+	React.create-element AppRoute
+	document.get-element-by-id \mount-node
