@@ -4,6 +4,8 @@ const gulp = require('gulp'),
     watchify = require("watchify"),
     babelify = require('babelify'),
     reactify = require('reactify'),
+    stylus = require("gulp-stylus"),
+    nib = require("nib"),
     gulpIf = require("gulp-if"),
     gulpStreamify = require("gulp-streamify"),
     gulpUglify = require("gulp-uglify"),
@@ -23,10 +25,22 @@ gulp.task('connect', function() {
 gulp.task('watch', function () {
   gulp.watch(['./public/*.html'], ['html']);
   gulp.watch(['./public/**/*.ls'], ['build:scripts']);
+  gulp.watch(['./public/**/*.styl'], ['build:styles']);
 });
 
 gulp.task('html', function () {
   gulp.src('./public/*.html')
+    .pipe(connect.reload());
+});
+
+gulp.task('build:styles', function(){
+  gulp.src('./public/*.styl')
+    .pipe(stylus({
+        compress: false,
+        "include css": true,
+        use: nib()
+    }))
+    .pipe(gulp.dest("./public/"))
     .pipe(connect.reload());
 });
 
@@ -67,4 +81,4 @@ gulp.task("build:scripts", function(){
 })
 
 
-gulp.task('default', ['build:scripts', 'connect', 'watch']);
+gulp.task('default', ['build:scripts', 'build:styles', 'connect', 'watch']);

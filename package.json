@@ -22,10 +22,12 @@
     "gulp-if": "^2.0.1",
     "gulp-livescript": "^3.0.1",
     "gulp-streamify": "^1.0.2",
+    "gulp-stylus": "^2.6.0",
     "gulp-transform": "^1.1.0",
     "gulp-uglify": "^2.0.0",
     "gulp-watch": "^4.3.10",
     "livescript": "^1.5.0",
+    "nib": "^1.1.2",
     "reactify": "^1.1.1",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.7.0"
