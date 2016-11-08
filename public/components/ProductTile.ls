@@ -2,13 +2,13 @@
 
 module.exports = React.create-class do
     render: ->
-        article {class-name: \Product},
+        article {class-name: \ProductTile},
             img {src: @props.image}
-            div {class-name: \flex-grid}
-                h2 null
+            div {class-name: \flex-grid},
+                h2 null,
                 @props.name
-                span null
+                span null,
                 @props.price
-            div {class-name: \flex-grid}
+            div {class-name: \flex-grid},
                 a {href: \javascript:;}, "view detail"
                 a {href: \javascript:;}, "Add to cart"
