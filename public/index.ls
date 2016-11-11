@@ -2,6 +2,7 @@
 require! \React-DOM
 require! \React-Router
 require! \./App/AppRoute.ls
+require! \./Home/HomeRoute.ls
 create-hash-history = require \history/lib/createHashHistory
 
 Route = create-factory React-Router.Route
@@ -11,7 +12,6 @@ ReactDOM.render do
     Router do
         history: create-hash-history.default!
         Route do
-            path: \/
             component: AppRoute
-            Route {path: \/product, component: AppRoute}
+            Route {path: \/, component: HomeRoute}
     document.get-element-by-id \mount-node
