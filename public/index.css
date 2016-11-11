@@ -12,11 +12,17 @@ body {
   padding: 0;
   margin: 0;
 }
-body {
-  font-family: 'Arial';
-}
 h2 {
   font-size: 18px;
+}
+body {
+  font-family: 'Arial';
+  background: #f2f2f2;
+}
+#mount-node {
+  background: #fff;
+  margin: 0 auto;
+  width: 980px;
 }
 header {
   padding: 10px;
