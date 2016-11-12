@@ -23,6 +23,10 @@ body {
   background: #fff;
   width: 100%;
 }
+.HomeRoute {
+  overflow: hidden;
+  width: 100%;
+}
 .btn {
   background: #3f3f3f;
   text-decoration: none;
@@ -61,10 +65,13 @@ nav li {
 }
 nav li a {
   padding: 28px 15px;
+  text-decoration: none;
   cursor: pointer;
+  color: #919191;
 }
 nav li a:hover {
   background: #fff;
+  color: #3f3f3f;
 }
 .banner {
   border-bottom: 1px solid #919191;
@@ -76,13 +83,15 @@ nav li a:hover {
 }
 .productList {
   width: 1000px;
-  margin: 25px auto;
+  margin: 0 auto;
+  padding: 25px 0;
 }
 .ProductTile {
   border: 1px solid #e0e0e0;
-  width: 240px;
   font-size: 12px;
+  display: inline-block;
   padding: 10px;
+  width: 240px;
 }
 .ProductTile img {
   width: 100%;

@@ -4,5 +4,5 @@ module.exports = React.create-class do
 
     render: ->
         li null,
-            a {href: @props.menuLink},
+            a {href: \javascript:;},
                 @props.menuItem
