@@ -1,6 +1,6 @@
 module.exports = (state = {
-    back: false,
-    loader: false,
+    back: false
+    loader: false
     searchOpen: false
     }, action) ->
     switch action.type
@@ -8,4 +8,4 @@ module.exports = (state = {
             Object.assign {}, state, do
                 back: true
        default
-           state
+            state
