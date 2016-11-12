@@ -47,7 +47,7 @@ gulp.task('build:styles', function(){
 // :: [String] -> Bundler
 var createBundler = function(entries){
    bundler = browserify(Object.assign({}, watchify.args, {
-       debug: false
+       debug: true
    }))
    bundler.add(entries)
    bundler.transform('browserify-livescript')
