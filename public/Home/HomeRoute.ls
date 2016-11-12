@@ -7,7 +7,10 @@ module.exports = React.create-class do
         div {class-name: \HomeRoute},
             Banner do
                 slogan: "My Slogan Here"
-            ProductTile do
-                image: \https://facebook.github.io/react/img/logo.svg
-                name: "My First Product"
-                price: "$95"
+                align: "right"
+                color: "#000"
+            div {class-name: \productList},    
+                ProductTile do
+                    image: \https://facebook.github.io/react/img/logo.svg
+                    name: "My First Product"
+                    price: "$95"

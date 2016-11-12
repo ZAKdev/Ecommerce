@@ -4,3 +4,5 @@ module.exports = React.create-class do
     render: ->
         div {class-name: \banner},
             @props.slogan
+            @props.align
+            @props.color

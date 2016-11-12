@@ -10,5 +10,5 @@ module.exports = React.create-class do
                 span null,
                 @props.price
             div {class-name: \flex-grid},
-                a {href: \javascript:;}, "view detail"
-                a {href: \javascript:;}, "Add to cart"
+                a {href: \javascript:; class-name: \btn}, "view detail"
+                a {href: \javascript:; class-name: \btn}, "Add to cart"

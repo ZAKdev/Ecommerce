@@ -19,28 +19,79 @@ body {
   font-family: 'Arial';
   background: #f2f2f2;
 }
-#mount-node {
+#mount-node section {
   background: #fff;
-  margin: 0 auto;
-  width: 980px;
+  width: 100%;
+}
+.btn {
+  background: #3f3f3f;
+  text-decoration: none;
+  padding: 8px 12px;
+  font-size: 14px;
+  color: #fff;
 }
 header {
-  padding: 10px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  color: #919191;
+  padding: 24px 10px;
+  background: #3f3f3f;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -o-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  -o-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
 }
 header h1 {
   font-size: 18px;
 }
+nav li {
+  list-style: none;
+}
+nav li a {
+  padding: 28px 15px;
+  cursor: pointer;
+}
+nav li a:hover {
+  background: #fff;
+}
 .banner {
-  padding: 10px;
+  border-bottom: 1px solid #919191;
+  background: #e0e0e0;
   text-align: center;
+  padding: 10px;
+  height: 380px;
+  width: 100%;
+}
+.productList {
+  width: 1000px;
+  margin: 25px auto;
 }
 .ProductTile {
-  width: 200px;
+  border: 1px solid #e0e0e0;
+  width: 240px;
   font-size: 12px;
   padding: 10px;
 }
 .ProductTile img {
   width: 100%;
+}
+.ProductTile h2 {
+  font-size: 18px;
+}
+.ProductTile span {
+  font-size: 22px;
 }
 .ProductTile .flex-grid {
   margin-top: 10px;

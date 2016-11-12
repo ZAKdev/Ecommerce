@@ -1,4 +1,5 @@
 {DOM:{div, header, h1, img}}:React = require \React
+Menu = React.create-factory require \./Menu.ls
 
 module.exports = React.create-class do
 
@@ -12,4 +13,6 @@ module.exports = React.create-class do
 
     render: ->
         header null,
-        @LogoType ->
+            @LogoType ->
+            Menu do
+                menuItem: @props.menuItem

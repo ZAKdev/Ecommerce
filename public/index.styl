@@ -3,6 +3,15 @@ $font1 = 'Arial'
 // Colors
 $bodyColor = #f2f2f2
 $color1 = #FFF
+$color2 = #3f3f3f
+$color3 = #919191
+$color4 = #e0e0e0
+
+// Font Size
+$fontSize1 = 22px
+$fontSize2 = 18px
+$fontSize3 = 14px
+$fontSize4 = 12px
 
 // Base Start
     h1, h2, h3, h4, h5, h6, p, ul, ol, form, body
@@ -12,22 +21,32 @@ $color1 = #FFF
         font-size 18px
 // Base End
 
-// Body Start 
+// Body Start
     body
         font-family $font1
         background $bodyColor
-// Body End 
+// Body End
 
-// Container Start   
+// Container Start
     #mount-node
-        background $color1
-        margin 0 auto
-        width 980px    
-// Container End     
+        section
+            background $color1
+            width 100%    
+// Container End
 
-// Importation Start 
+// Buttons Start
+    .btn
+        background $color2
+        text-decoration none
+        padding 8px 12px
+        font-size $fontSize3
+        color $color1
+// Buttons End
+
+// Importation Start
     @import 'nib';
     @import './App/Header';
+    @import './App/Menu';
     @import './Home/Banner';
     @import './components/ProductTile';
 // Importation End
