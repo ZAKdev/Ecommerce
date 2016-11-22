@@ -10,5 +10,6 @@ module.exports = {
                 keepAlive: 1,
             },
         },
-    }
+    },
+    port: "3000"
 }
