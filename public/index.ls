@@ -6,6 +6,7 @@ ReactRedux = require \react-redux
 reduxStore = require \./reduxStore.ls
 require! \./App/AppRoute.ls
 require! \./Home/HomeRoute.ls
+require! \./Detail/DetailRoute.ls
 create-hash-history = require \history/lib/createHashHistory
 
 Route = create-factory React-Router.Route
@@ -22,4 +23,5 @@ ReactDOM.render do
             Route do
                 component: AppRoute
                 Route {path: \/, component: HomeRoute}
+                Route {path: \/products/:id, component: DetailRoute}
     document.get-element-by-id \mount-node

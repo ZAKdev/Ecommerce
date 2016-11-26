@@ -1,5 +1,10 @@
-module.exports = (db, req, res) => {
-    db.collection("products").find().toArray((err, product) => {
-        res.json({product: product});
-    })
-}
+const express = require("express"),
+    router = express.Router(),
+    getAllItems = require("./../ecommerceStore").getAllItems;
+
+router.get('/api/allitems', (req, res) => {
+    getAllItems()
+        .then(items => res.json({allitems: items}))
+})
+
+module.exports = router
