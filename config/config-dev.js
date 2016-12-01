@@ -11,5 +11,8 @@ module.exports = {
             },
         },
     },
-    port: "3000"
+    B_port: "3000",
+    F_port: "1888",
+    debug: true,
+    minify: false
 }

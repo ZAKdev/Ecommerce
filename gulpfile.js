@@ -1,56 +1,60 @@
-const gulp = require('gulp'),
-    babel = require('gulp-babel'),
-    browserify = require("browserify"),
-    watchify = require("watchify"),
-    babelify = require('babelify'),
-    reactify = require('reactify'),
+var gulp = require("gulp"),
+    connect = require("gulp-connect"),
+    livereload = require("gulp-livereload"),
+    watch = require("gulp-watch"),
+    gulpUglify = require("gulp-uglify"),
     stylus = require("gulp-stylus"),
     nib = require("nib"),
+    watchify = require("watchify"),
+    browserify = require("browserify"),
     gulpIf = require("gulp-if"),
-    gulpStreamify = require("gulp-streamify"),
-    gulpUglify = require("gulp-uglify"),
+    config = require("./config/config.js"),
+    babel = require("gulp-babel"),
     gulpUtil = require("gulp-util"),
+    gulpStreamify = require("gulp-streamify"), 
     source = require("vinyl-source-stream"),
-    browserifyLivescript = require('browserify-livescript'),
-    connect = require('gulp-connect');
+    babelify = require('babelify'),
+    reactify = require('reactify'),
+    underscore = require("underscore");
 
-gulp.task('connect', function() {
+gulp.task("dev:server", function() {
   connect.server({
-    root: 'public',
-    livereload: true,
-    port: 1888
+    port: config.F_port,
+    root: "public",
+    livereload: true
   });
 });
 
-gulp.task('watch', function () {
-  gulp.watch(['./public/*.html'], ['html']);
-  gulp.watch(['./public/**/*.ls'], ['build:scripts']);
-  gulp.watch(['./public/**/*.styl'], ['build:styles']);
+gulp.task("reload", function () {
+    gulp.src('./public/index.html')
+        .pipe(connect.reload())
 });
 
-gulp.task('html', function () {
-  gulp.src('./public/*.html')
-    .pipe(connect.reload());
+gulp.task("watch:html", function(){
+    gulp.watch("public/*.html", ["reload"]);
 });
 
-gulp.task('build:styles', function(){
-  gulp.src('./public/*.styl')
-    .pipe(stylus({
-        compress: false,
-        "include css": true,
-        use: nib()
-    }))
-    .pipe(gulp.dest("./public/"))
-    .pipe(connect.reload());
+gulp.task("build:styles", function () {
+    return gulp.src("public/*.styl")
+        .pipe(stylus({
+            compress: false,
+            "include css": true,
+            use: nib()
+        }))
+        .pipe(gulp.dest("public/"))
+        .pipe(connect.reload());
+});
+
+gulp.task("watch:styles", function(){
+    gulp.watch("public/*.styl", ["build:styles", "reload"]);
 });
 
 // :: [String] -> Bundler
 var createBundler = function(entries){
    bundler = browserify(Object.assign({}, watchify.args, {
-       debug: true
+       debug: config.debug
    }))
    bundler.add(entries)
-   bundler.transform('browserify-livescript')
    bundler.transform(babelify, {presets: ["es2015", "react", "stage-2"]})
    bundler.transform(reactify)
    return bundler
@@ -69,7 +73,26 @@ var bundle = function(bundler, output){
        .pipe(gulp.dest(output.directory))
 }
 
-indexJsBundler = createBundler("./public/index.ls")
+// :: Bundler -> {file :: String, directory :: String} -> (() -> Void) -> (() -> Void) -> (() -> Void)
+var buildAndWatch = function(bundler, output, done, onUpdate, onBuild){
+   onceDone = underscore.once(done)
+   watchifiedBundler = watchify(bundler)
+   bundle(watchifiedBundler, output)
+   watchifiedBundler
+       .on("update", function(){
+           if (onUpdate)
+               onUpdate()
+           bundle(watchifiedBundler, output)
+       })
+       .on("time", function(time){
+           if (onBuild)
+               onBuild()
+           onceDone()
+           gulpUtil.log(output.file + " built in " + (time / 1000) + " seconds")
+       })
+}
+
+indexJsBundler = createBundler("./public/index.js")
 indexJsBuilt = {
    directory: "./public", 
    file: "index.min.js"
@@ -77,8 +100,20 @@ indexJsBuilt = {
 
 gulp.task("build:scripts", function(){
    bundle(indexJsBundler, indexJsBuilt)
-    .pipe(connect.reload());
 })
 
+gulp.task("build-and-watch:scripts", function(done){
+    buildAndWatch(
+        indexJsBundler,
+        indexJsBuilt,
+        done,
+        function(){},
+        function(){
+            gulp.src('./public/index.html')
+                .pipe(connect.reload())
+        }
+    )
+})
 
-gulp.task('default', ['build:scripts', 'build:styles', 'connect', 'watch']);
+gulp.task("default", ["watch:html", "watch:styles", "build:styles", "build-and-watch:scripts", "dev:server"]);
+gulp.task("build", ["build:styles", "build:scripts"]);
