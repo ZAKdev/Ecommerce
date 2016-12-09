@@ -6,8 +6,9 @@ const mongodb = require("mongodb").MongoClient,
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(require('./routes/auth'))
 app.use(require('./routes/allitems'))
 
-app.listen(config.port, () => {
-    console.log(`App is running on port ${config.port}`);
+app.listen(config.B_port, () => {
+    console.log(`App is running on port ${config.B_port}`);
 });
