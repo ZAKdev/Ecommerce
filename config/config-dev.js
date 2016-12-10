@@ -1,5 +1,5 @@
 module.exports = {
-	mongoConnection: 'mongodb://localhost:27017/ecommerce',
+	mongoConnection: 'mongodb://192.168.0.100:27017/ecommerce',
 	mongoOptions: {
         auto_reconnect: true,
         db: {

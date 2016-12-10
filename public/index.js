@@ -25,4 +25,4 @@ ReactDOM.render(
     , document.getElementById("mount-node")
 )
 
-//window.reduxStore = reduxStore;
+window.reduxStore = reduxStore;

@@ -4,14 +4,22 @@ const
 
 module.exports = React.createClass({
 
+    getDefaultProps(){
+        return {
+            menuItems: []
+        }
+    },
+
     render(){
         return (
             <nav>
                 <ul>
-                    <MenuItem menuItem={this.props.menuItem}/>
-                    <MenuItem menuItem={this.props.menuItem}/>
-                    <MenuItem menuItem={this.props.menuItem}/>
-                    <MenuItem menuItem={this.props.menuItem}/>
+                    {this.props.menuItems.map((menuItem) => {
+                            return <MenuItem
+                                menuItem={menuItem}
+                            />
+                        })
+                    }
                 </ul>
             </nav>
         )

@@ -4,13 +4,12 @@ const
     userLogin = require("./../ecommerceStore").userLogin;
 
 router.post('/api/auth', (req, res) => {
-    userLogin(req.headers.username, req.headers.password)
+    userLogin(req.body.username, req.body.password)
         .then(user => {
-            res.status(200).json(user)
-            if(user != null)
-                res.status(200).json(user)
-            else {
-                res.status(401).json({
+            if(user != null){
+                return res.status(200).json(user)
+            } else {
+                return res.status(401).json({
                   "message" : "Error: User Not Found"
                 });
             }
