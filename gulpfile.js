@@ -46,7 +46,7 @@ gulp.task("build:styles", function () {
 });
 
 gulp.task("watch:styles", function(){
-    gulp.watch("public/*.styl", ["build:styles", "reload"]);
+    gulp.watch("public/**/*.styl", ["build:styles", "reload"]);
 });
 
 // :: [String] -> Bundler

@@ -1,7 +1,8 @@
 import { connect } from "react-redux";
 const
     React = require("react"),
-    Header = require("./Header");
+    Header = require("./Header"),
+    Footer = require("./Footer");
 
 const AppRoute = React.createClass({
 
@@ -13,6 +14,11 @@ const AppRoute = React.createClass({
                     menuItem="Home"
                 />
                 {this.props.children}
+                <Footer
+                   footerHeading="lorem ipsum"
+                   footerParagraph="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+                   footerLinks="Lorem Ipsum is simply dummy"
+                />
             </section>
         )
     },

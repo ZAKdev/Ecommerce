@@ -15,6 +15,10 @@ body {
 h2 {
   font-size: 18px;
 }
+p,
+li {
+  font-size: 14px;
+}
 body {
   font-family: 'Arial';
   background: #f2f2f2;
@@ -60,8 +64,40 @@ header {
 header h1 {
   font-size: 18px;
 }
+footer {
+  padding: 18px 15px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  color: #919191;
+  background: #3f3f3f;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -o-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  -o-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+footer h2 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+footer .footerBox {
+  width: 100%;
+  padding-right: 40px;
+}
 nav li {
   list-style: none;
+  display: inline-block;
 }
 nav li a {
   padding: 28px 15px;

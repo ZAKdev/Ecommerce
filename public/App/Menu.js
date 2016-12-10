@@ -9,6 +9,9 @@ module.exports = React.createClass({
             <nav>
                 <ul>
                     <MenuItem menuItem={this.props.menuItem}/>
+                    <MenuItem menuItem={this.props.menuItem}/>
+                    <MenuItem menuItem={this.props.menuItem}/>
+                    <MenuItem menuItem={this.props.menuItem}/>
                 </ul>
             </nav>
         )
