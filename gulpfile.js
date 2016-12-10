@@ -62,7 +62,7 @@ var createBundler = function(entries){
 
 // :: Bundler -> {file :: String, directory :: String} -> IO()
 var bundle = function(bundler, output){
-  process.env.NODE_ENV = 'development';
+  process.env.NODE_ENV = 'production';
   return bundler.bundle()
        .on("error", function(){
            return gulpUtil.log(arguments)

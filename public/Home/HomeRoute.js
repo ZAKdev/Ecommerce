@@ -1,7 +1,7 @@
 const
     React = require("react"),
     Banner = require("./Banner"),
-    ProductTile = require("./../componentS/ProductTile");
+    ProductTile = require("./../components/ProductTile");
 
 module.exports = React.createClass({
 

@@ -9,7 +9,8 @@ const
     reduxStore = require("./reduxStore"),
     AppRoute = require("./App/AppRoute"),
     HomeRoute = require("./Home/HomeRoute"),
-    DetailRoute = require("./Detail/DetailRoute");
+    DetailRoute = require("./Detail/DetailRoute"),
+    LoginRoute = require("./Admin/Login/LoginRoute");
 
 ReactDOM.render(
     <Provider store={reduxStore}>
@@ -17,6 +18,7 @@ ReactDOM.render(
             <Route component={AppRoute}>
                 <Route path="/" component={HomeRoute}/>
                 <Route path="/product/:id" component={DetailRoute}/>
+                <Route path="/admin/login" component={LoginRoute}/>
             </Route>
         </Router>
     </Provider>
