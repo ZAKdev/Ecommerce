@@ -14,7 +14,7 @@ $fontSize3 = 14px
 $fontSize4 = 12px
 
 // Base Start
-    h1, h2, h3, h4, h5, h6, p, ul, ol, form, body
+    h1, h2, h3, h4, h5, h6, p, ul, ol, form, body, figure
         padding 0
         margin 0
     h2
@@ -28,6 +28,10 @@ $fontSize4 = 12px
         font-family $font1
         background $bodyColor
 // Body End
+
+// Helper Class
+    .fullWidth
+        width 100%
 
 // Container Start
     #mount-node
@@ -54,5 +58,6 @@ $fontSize4 = 12px
     @import './App/Footer';
     @import './App/Menu';
     @import './Home/Banner';
+    @import './Detail/Product';
     @import './components/ProductTile';
 // Importation End

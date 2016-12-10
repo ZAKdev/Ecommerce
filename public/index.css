@@ -8,7 +8,8 @@ p,
 ul,
 ol,
 form,
-body {
+body,
+figure {
   padding: 0;
   margin: 0;
 }
@@ -22,6 +23,9 @@ li {
 body {
   font-family: 'Arial';
   background: #f2f2f2;
+}
+.fullWidth {
+  width: 100%;
 }
 #mount-node section {
   background: #fff;
@@ -119,6 +123,29 @@ nav li a:hover {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+}
+.singleProduct {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -o-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  -o-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+.singleProduct figure {
+  width: 300px;
 }
 .productList {
   width: 1000px;
