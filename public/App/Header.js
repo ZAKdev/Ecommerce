@@ -22,7 +22,7 @@ module.exports = React.createClass({
         return (
             <header>
                 {this.LogoType()}
-                <Menu menuItem={this.props.menuItem}/>
+                <Menu menuItems={this.props.menuItems}/>
             </header>
         )
     }

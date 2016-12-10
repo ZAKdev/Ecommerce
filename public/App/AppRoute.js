@@ -11,7 +11,7 @@ const AppRoute = React.createClass({
             <section>
                 <Header
                     text="Logo Here"
-                    menuItem="Home"
+                    menuItems={["Home", "About", "Contact"]}
                 />
                 {this.props.children}
                 <Footer
