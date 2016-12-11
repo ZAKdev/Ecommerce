@@ -10,7 +10,8 @@ module.exports = React.createClass({
                 </figure>
                 <div className="detail">
                     <h2>{this.props.name}</h2>
-                    <span>{this.props.price}</span>
+                    <p>{this.props.content}</p>
+                    <span className="price">{this.props.price}</span>
                     <a className="btn" href={this.props.href}>Add to cart</a>
                 </div>
             </article>
