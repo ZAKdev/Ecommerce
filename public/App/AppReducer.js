@@ -1,4 +1,4 @@
-module.exports = (state = {
+const AppReducer = (state = {
     back: false,
     loader: false,
     searchOpen: false
@@ -12,3 +12,5 @@ module.exports = (state = {
             return state
     }
 }
+
+export default AppReducer;

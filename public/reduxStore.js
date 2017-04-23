@@ -1,12 +1,10 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
+import thunk from "redux-thunk";
 
-const
-    Redux = require("redux"),
-    ReduxThunk = require("redux-thunk").default,
-    AppReducer = require("./App/AppReducer"),
-    AdminReducer = require("./Admin/AdminReducer");
+import AppReducer from "./App/AppReducer";
+import AdminReducer from "./Admin/AdminReducer";
 
-module.exports = createStore(combineReducers({
-    app: AppReducer,
+export default () => createStore(combineReducers({
+	App: AppReducer,
     admin: AdminReducer
-}), applyMiddleware(ReduxThunk));
+}), applyMiddleware(thunk));

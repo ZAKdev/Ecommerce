@@ -1,11 +1,6 @@
-const loadAppRoute = () => {
-	return (dispatch) => {
+export const loadAppRoute = () =>
+	(dispatch) => {
 		dispatch({
 			type: "BACK"
 		})
 	}
-}
-
-module.exports = {
-    loadAppRoute
-}

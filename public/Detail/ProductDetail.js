@@ -1,10 +1,14 @@
-const React = require("react");
+import React from "react";
 
-module.exports = React.createClass({
+class ProductDetail extends React.Component{
+
+    constructor(props){
+        super(props)
+    }
 
     render(){
         return (
-            <article className="singleProduct">
+            <article className="ProductDetail">
                 <figure>
                     <img className="fullWidth" src={this.props.image}/>
                 </figure>
@@ -17,5 +21,6 @@ module.exports = React.createClass({
             </article>
         )
     }
+}
 
-})
+export default ProductDetail

@@ -1,4 +1,4 @@
-module.exports = (state = {
+const Adminreducer = (state = {
     auth: ""
 }, action) => {
     switch (action.type){
@@ -14,3 +14,5 @@ module.exports = (state = {
             return state
     }
 }
+
+export default Adminreducer;

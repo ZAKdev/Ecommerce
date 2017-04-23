@@ -1,13 +1,18 @@
-const React = require("react");
+import React from "react";
 
-module.exports = React.createClass({
+class Banner extends React.Component{
 
-    render(){
-        return (
-            <div className="banner">
-                {this.props.slogan}
-            </div>
-        )
-    }
+	constructor(props){
+		super(props)
+	}
 
-})
+	render(){
+		return (
+			<div className="banner">
+				{this.props.slogan}
+			</div>
+		)
+	}
+}
+
+export default Banner

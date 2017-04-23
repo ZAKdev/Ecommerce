@@ -1,10 +1,16 @@
-const React = require("react");
+import React from "react";
 
-module.exports = React.createClass({
-    
-    render(){
-        return (
+class MenuItem extends React.Component{
+	
+	constructor(props){
+		super(props)
+	}
+
+	render(){
+		return (
             <li><a href="javascript:;">{this.props.menuItem}</a></li>
         )
-    }
-})
+	}
+}
+
+export default MenuItem

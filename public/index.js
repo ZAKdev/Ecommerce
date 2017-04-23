@@ -1,24 +1,27 @@
+import './index.styl';
+
 // For borwser compatibility
 import 'babel-polyfill';
-
+import React from "react";
 import { Router, Route, hashHistory } from 'react-router';
 import { connect, Provider } from "react-redux";
-const
-    React = require("react"),
-    ReactDOM = require("react-dom"),
-    reduxStore = require("./reduxStore"),
-    AppRoute = require("./App/AppRoute"),
-    HomeRoute = require("./Home/HomeRoute"),
-    DetailRoute = require("./Detail/DetailRoute"),
-    LoginRoute = require("./Admin/Login/LoginRoute");
+import ReactDOM from "react-dom";
+
+import configureStore from './reduxStore';
+import AppContainer from "./App/AppContainer";
+import HomeContainer from "./Home/HomeContainer";
+import DetailContainer from "./Detail/DetailContainer";
+import LoginContainer from "./Admin/Login/LoginContainer";
+
+const reduxStore = configureStore();
 
 ReactDOM.render(
     <Provider store={reduxStore}>
         <Router history={hashHistory}>
-            <Route component={AppRoute}>
-                <Route path="/" component={HomeRoute}/>
-                <Route path="/product/:id" component={DetailRoute}/>
-                <Route path="/admin/login" component={LoginRoute}/>
+            <Route component={AppContainer}>
+                <Route path="/" component={HomeContainer}/>
+                <Route path="/product/:id" component={DetailContainer}/>
+                <Route path="/admin/login" component={LoginContainer}/>
             </Route>
         </Router>
     </Provider>

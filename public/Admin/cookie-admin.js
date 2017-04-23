@@ -1,9 +1,5 @@
-const cookie = require("react-cookie");
+import cookie from "react-cookie";
 
-const cookieUser = (user) => {
+export const cookieUser = (user) => {
     cookie.save('user', user);
-}
-
-module.exports = {
-    cookieUser
 }

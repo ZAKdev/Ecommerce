@@ -1,6 +1,5 @@
-const
-    config = require("./config-admin"),
-    axios = require("axios");
+import * as config from "./../../config/config";
+import axios from "axios";
 
 const api = axios.create({
     baseURL: config.apiUrl,
@@ -8,13 +7,9 @@ const api = axios.create({
     headers: {'Content-Type': 'application/json'}
 })
 
-const userLogin = (user, pass) => {
+export const userLoginApi = (user, pass) => {
     return api.post('/auth', {
         username: user,
         password: pass
     })
-}
-
-module.exports = {
-    userLogin
 }

@@ -1,8 +1,12 @@
-const
-    React = require("react"),
-    ProductDetail = require("./ProductDetail");
+import React from "react";
 
-module.exports = React.createClass({
+import ProductDetail from "./ProductDetail";
+
+class DetailContainer extends React.Component{
+
+    constructor(props){
+        super(props)
+    }
 
     render(){
         return (
@@ -17,5 +21,6 @@ module.exports = React.createClass({
             </div>
         )
     }
+}
 
-})
+export default DetailContainer

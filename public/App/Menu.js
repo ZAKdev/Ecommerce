@@ -1,28 +1,33 @@
-const
-    React = require("react"),
-    MenuItem = require("./MenuItem");
+import React from "react";
+import MenuItem from "./MenuItem";
 
-module.exports = React.createClass({
+class Menu extends React.Component{
 
-    getDefaultProps(){
-        return {
-            menuItems: []
-        }
-    },
+	constructor(props){
+		super(props)
+	}
 
-    render(){
-        return (
-            <nav>
-                <ul>
-                    {this.props.menuItems.map((menuItem) => {
-                            return <MenuItem
-                                menuItem={menuItem}
-                            />
-                        })
-                    }
-                </ul>
-            </nav>
-        )
-    }
+	defaultProps(){
+		return {
+			menuItems: []
+		}
+	}
 
-})
+	render(){
+		return (
+			<nav>
+				<ul>
+					{this.props.menuItems.map((menuItem, key) => {
+							return <MenuItem
+								key={key}
+								menuItem={menuItem}
+							/>
+						})
+					}
+				</ul>
+			</nav>
+		)
+	}
+}
+
+export default Menu

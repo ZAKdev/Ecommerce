@@ -1,10 +1,9 @@
-const
-    {userLogin} = require("./api-admin"),
-    {cookieUser} = require("./cookie-admin");
+import { userLoginApi } from "./api-admin";
+import { cookieUser } from "./cookie-admin";
 
-const UserLogin = (username, password) => {
-    return (dispatch) => {
-        userLogin(username, password)
+export const UserLogin = (username, password) =>
+    (dispatch) => {
+        userLoginApi(username, password)
             .then((response) => {
                 cookieUser(response.data)
                 dispatch({
@@ -19,8 +18,3 @@ const UserLogin = (username, password) => {
                 })
             })
     }
-}
-
-module.exports = {
-    UserLogin
-}
